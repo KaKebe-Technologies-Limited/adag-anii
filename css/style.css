@@ -26,6 +26,15 @@
     font-weight: 500 !important;
 }
 
+a.top-contact-link {
+    text-decoration: none;
+    color: unset;
+}
+
+a.top-contact-link:hover {
+    color: unset;
+}
+
 /* Governance Section Styling */
 .bg-light {
     background-color: #f8fafc !important; /* Bright, light background */
@@ -606,6 +615,15 @@ iframe.rounded {
 /*** Footer ***/
 .footer {
     color: #B0B9AE;
+}
+
+.footer a.footer-link {
+    text-decoration: none;
+    color: unset;
+}
+
+.footer a.footer-link:hover {
+    color: #EDDD5E;
 }
 
 .footer .btn.btn-link {

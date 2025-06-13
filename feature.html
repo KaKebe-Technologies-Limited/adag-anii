@@ -70,7 +70,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">   
 
     <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
@@ -106,8 +106,10 @@
         </div>
         <div class="col-lg-6 text-end">
             <div class="h-100 bg-primary d-inline-flex align-items-center text-white py-2 px-4 hover-effect">
-                <span class="me-2 fw-semi-bold"><i class="fa fa-phone-alt me-2"></i>Contact Us:</span>
-                <span>+256 777676206</span>
+                <a class="top-contact-link" href="tel:+256777676206">
+                    <span class="me-2 fw-semi-bold"><i class="fa fa-phone-alt me-2"></i>Contact Us:</span>
+                    <span>+256 777676206</span>
+                </a>
             </div>
         </div>
     </div>
@@ -123,7 +125,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="index.html" class="nav-item nav-link">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
                     <a href="service.html" class="nav-item nav-link">Services</a>
                     <a href="product.html" class="nav-item nav-link">Products</a>
@@ -133,6 +135,7 @@
                             <a href="gallery.html" class="dropdown-item">Gallery</a>
                             <!-- <a href="feature.html" class="dropdown-item">Features</a> -->
                             <a href="team.html" class="dropdown-item">Our Team</a>
+                            <a href="contact.html" class="dropdown-item">Contact Us</a>
                             <!-- <a href="cocoa.html" class="dropdown-item">Cocoa Production</a> -->
                             <!-- <a href="vegetable.html" class="dropdown-item">Vegetable Production</a> -->
                             <!-- <a href="404.html" class="dropdown-item">Organic Farm Inputs</a> -->
@@ -140,7 +143,7 @@
                             <!-- <a href="testimonial.html" class="dropdown-item">Post-Harvest & Market Linkage</a> -->
                         </div>
                     </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <!-- <a href="contact.html" class="nav-item nav-link">Contact</a> -->
                 </div>
                
             </div>
@@ -221,9 +224,9 @@
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-white mb-4">Our Office</h5>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Renzo House,Lira City, Uganda</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+256 777 676206 </p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@adaganiilimited.com</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Renzo House, Lira City, Uganda</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a class="footer-link" href="tel:+256777676206">+256 777 676206 </a></p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i><a class="footer-link" href="mailto:info@adaganiilimited.com">info@adaganiilimited.com </a></p>
                     <div class="d-flex pt-3">
                         <a class="btn btn-square btn-secondary rounded-circle me-2" href="[Your X Profile URL]"><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-square btn-secondary rounded-circle me-2" href="[Your Facebook URL]"><i class="fab fa-facebook-f"></i></a>
@@ -233,11 +236,10 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-white mb-4">Quick Links</h5>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="product.html">Our Products</a>
+                    <a class="btn btn-link" href="service.html">Our Services</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-white mb-4">Business Hours</h5>
