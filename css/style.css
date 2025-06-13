@@ -339,6 +339,11 @@ iframe.rounded {
     color: var(--light);
 }
 
+@media (min-width: 769px) {
+    .page-header {
+        min-height: 313px;
+    }
+}
 
 /*** Section Title ***/
 .section-title {
