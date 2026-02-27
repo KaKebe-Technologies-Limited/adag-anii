@@ -67,51 +67,56 @@
 
     // EmailJS Form Handling
     (function() {
-        // Initialize EmailJS with your public key
-        // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key from https://dashboard.emailjs.com/
-        if (emailjs) emailjs.init("DPrvjhLq84XQbhMAi");
-    })();
+        // only do anything if the library actually loaded
+        if (typeof emailjs !== 'undefined' && emailjs) {
+            emailjs.init("DPrvjhLq84XQbhMAi");
 
-    // Form submission handler
-    $("#contact-form").on("submit", function(event) {
-        event.preventDefault();
+            // Form submission handler
+            $("#contact-form").on("submit", function(event) {
+                event.preventDefault();
 
-        // Get the submit button
-        var submitBtn = $(this).find('button[type="submit"]');
-        var originalBtnText = submitBtn.html();
+                // Get the submit button
+                var submitBtn = $(this).find('button[type="submit"]');
+                var originalBtnText = submitBtn.html();
 
-        // Show loading state
-        submitBtn.prop('disabled', true).html('<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Sending...');
+                // Show loading state
+                submitBtn.prop('disabled', true)
+                         .html('<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Sending...');
 
-        // Send the form using EmailJS
-        // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your EmailJS credentials
-        emailjs.sendForm('service_kp8hgdu', 'template_ow18je3', this)
-            .then(function() {
-                // Show success message
-                $('#success-message').removeClass('d-none');
-                $('#error-message').addClass('d-none');
-                $('#contact-form')[0].reset();
-
-                // Scroll to the message
-                $('html, body').animate({
-                    scrollTop: $('#success-message').offset().top - 100
-                }, 500);
-            })
-            .catch(function(error) {
-                // Show error message
-                $('#error-message').removeClass('d-none');
-                $('#success-message').addClass('d-none');
-
-                // Scroll to the message
-                $('html, body').animate({
-                    scrollTop: $('#error-message').offset().top - 100
-                }, 500);
-            })
-            .finally(function() {
-                // Restore button state
-                submitBtn.prop('disabled', false).html(originalBtnText);
+                // Send the form using EmailJS - replace with your actual service and template IDs
+                emailjs.sendForm('service_kp8hgdu', 'template_ow18je3', this)
+                    .then(function () {
+                        // Show success message
+                        $('#success-message').removeClass('d-none');
+                        $('#error-message').addClass('d-none');
+                        $('#contact-form')[0].reset();
+                        // Scroll to the message
+                        $('html, body').animate({
+                            scrollTop: $('#success-message').offset().top - 100
+                        }, 500);
+                    })
+                    .catch(function (error) {
+                        // Show error message
+                        $('#error-message').removeClass('d-none');
+                        $('#success-message').addClass('d-none');
+                        // Scroll to the message
+                        $('html, body').animate({
+                            scrollTop: $('#error-message').offset().top - 100
+                        }, 500);
+                    })
+                    // Restore button state
+                    .finally(function() {
+                        submitBtn.prop('disabled', false).html(originalBtnText);
+                    });
             });
-    });
+        } else {
+            // library not present – prevent errors if someone submits
+            $("#contact-form").on("submit", function(event) {
+                event.preventDefault();
+                console.warn('EmailJS not loaded; contact form disabled.');
+            });
+        }
+    })();
 
 })(jQuery);
 
