@@ -1,0 +1,30 @@
+# Enable rewriting
+RewriteEngine On
+
+# Ensure the base is correct
+RewriteBase /
+
+# Redirect root to index.html (optional since it defaults)
+RewriteRule ^$ index.html [L]
+
+# Rewrite clean URLs for existing html files
+# e.g. /about or /about/ to about.html
+# And for nested URLs, map to their .html file if it exists
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# check if a corresponding .html file exists
+RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI}.html -f
+RewriteRule ^(.*?)/?$ $1.html [L]
+
+# If you have nested paths (e.g. /folder/page) adjust accordingly
+# Uncomment and modify the following as needed:
+#RewriteRule ^([^/]+)/([^/]+)/?$ $1/$2.html [L]
+
+# Custom 404 page handling
+# serve the 404.html when a request doesn't match an existing resource
+ErrorDocument 404 /404.html
+
+# optional rewrite fallback for SPA-like setups (comment out if using ErrorDocument)
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule . /index.html [L]
