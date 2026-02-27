@@ -12,9 +12,9 @@ RewriteRule ^$ index.html [L]
 # And for nested URLs, map to their .html file if it exists
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-# check if a corresponding .html file exists
-RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI}.html -f
-RewriteRule ^(.*?)/?$ $1.html [L]
+# check if a corresponding .html file exists (strip any trailing slash)
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
 
 # If you have nested paths (e.g. /folder/page) adjust accordingly
 # Uncomment and modify the following as needed:
